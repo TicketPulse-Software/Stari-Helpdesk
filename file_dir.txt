@@ -1,0 +1,30 @@
+helpdesk/
+|-- admin/
+|   |-- index.php
+|   |-- integrations.php
+|   |-- manage_tickets.php
+|   |-- view_ticket.php
+|-- agent/
+|   |-- index.php
+|   |-- manage_tickets.php
+|   |-- view_ticket.php
+|-- customer/
+|   |-- index.php
+|   |-- view_ticket.php
+|-- includes/
+|   |-- db.php
+|   |-- email.php
+|   |-- email_template.php
+|   |-- tickets.php
+|   |-- sms.php
+|   |-- knowledgebase.php
+|   |-- auth.php
+|   |-- gmail_callback.php
+|   |-- outlook_callback.php
+|-- public/
+|   |-- index.php
+|   |-- login.php
+|   |-- register.php
+|-- config.php
+|-- .htaccess
+|-- subdomain_router.php
