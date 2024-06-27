@@ -13,7 +13,7 @@ Welcome to Stari-Helpdesk, an efficient and user-friendly helpdesk system create
 
 ### Prerequisites
 
-- PHP 7.4 or higher
+- PHP 8.0 or higher
 - MySQL or MariaDB
 - Web server (Apache, Nginx, etc.)
 
