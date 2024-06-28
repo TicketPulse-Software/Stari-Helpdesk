@@ -1,0 +1,25 @@
+{
+    "name": "stari-helpdesk/main",
+    "description": "Stari Helpdesk Project",
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "monolog/monolog": "^2.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "symfony/var-dumper": "^5.0",
+        "phpmailer/phpmailer": "^6.5",
+        "google/apiclient": "^2.10",
+        "microsoft/microsoft-graph": "^1.50",
+        "phpclassic/php-shopify": "^1.0",
+        "clicksend/clicksend-php": "^5.0",
+        "twilio/sdk": "^6.30"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\Admin\\": "admin/",
+            "App\\Agent\\": "agent/",
+            "App\\Customer\\": "customer/",
+            "App\\Includes\\": "includes/",
+            "App\\Public\\": "public/"
+        }
+    }
+}
