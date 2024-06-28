@@ -4,14 +4,14 @@
 if ! command -v composer &> /dev/null
 then
     echo "Composer could not be found, please install it first."
-    exit
+    exit 1
 fi
 
 # Check if mysql is installed
 if ! command -v mysql &> /dev/null
 then
     echo "MySQL could not be found, please install it first."
-    exit
+    exit 1
 fi
 
 # Function to prompt for user input or generate random database name
@@ -27,6 +27,32 @@ generate_random_db_name() {
     fi
     echo $db_name
 }
+
+# Create config directory if it doesn't exist
+mkdir -p config
+
+# Prompt for user input to create the database.conf file
+if [ ! -f config/database.conf ]; then
+    echo "Creating config/database.conf file..."
+    cat <<EOT >> config/database.conf
+DB_HOST=$(read -p "Enter your Database Host: " DB_HOST && echo $DB_HOST)
+DB_PORT=$(read -p "Enter your Database Port: " DB_PORT && echo $DB_PORT)
+DB_DATABASE=$(generate_random_db_name)
+DB_USERNAME=$(read -p "Enter your Database Username: " DB_USERNAME && echo $DB_USERNAME)
+DB_PASSWORD=$(read -p "Enter your Database Password: " DB_PASSWORD && echo $DB_PASSWORD)
+EOT
+    echo "config/database.conf file created. Please update it with your configuration if necessary."
+else
+    echo "config/database.conf file already exists. Please ensure it is updated with your configuration."
+fi
+
+# Load database configuration from config/database.conf
+if [ -f config/database.conf ]; then
+    source config/database.conf
+else
+    echo "config/database.conf file not found. Aborting setup."
+    exit 1
+fi
 
 # Prompt for user input to create the .env file
 if [ ! -f .env ]; then
@@ -54,7 +80,7 @@ SMTP_ENCRYPTION=$(read -p "Enter your SMTP Encryption (tls/ssl): " SMTP_ENCRYPTI
 # Database settings
 DB_HOST=$(read -p "Enter your Database Host: " DB_HOST && echo $DB_HOST)
 DB_PORT=$(read -p "Enter your Database Port: " DB_PORT && echo $DB_PORT)
-DB_DATABASE=$(generate_random_db_name)
+DB_DATABASE=$(echo $DB_DATABASE)
 DB_USERNAME=$(read -p "Enter your Database Username: " DB_USERNAME && echo $DB_USERNAME)
 DB_PASSWORD=$(read -p "Enter your Database Password: " DB_PASSWORD && echo $DB_PASSWORD)
 
@@ -67,7 +93,7 @@ SHOPIFY_ACCESS_TOKEN=$(read -p "Enter your Shopify Access Token: " SHOPIFY_ACCES
 # Domain settings
 DOMAIN=$(read -p "Enter your Domain: " DOMAIN && echo $DOMAIN)
 EOT
-    echo ".env file created. Please update it with your configuration."
+    echo ".env file created. Please update it with your configuration if necessary."
 else
     echo ".env file already exists. Please ensure it is updated with your configuration."
 fi
@@ -118,7 +144,7 @@ define('SMTP_ENCRYPTION', getenv('SMTP_ENCRYPTION'));
 define('DOMAIN', getenv('DOMAIN'));
 ?>
 EOT
-    echo "config.php file created. Please update it with your configuration."
+    echo "config.php file created. Please update it with your configuration if necessary."
 else
     echo "config.php file already exists. Please ensure it is updated with your configuration."
 fi
@@ -198,3 +224,4 @@ else
     echo "Failed to create tables. Please check your MySQL credentials and try again."
     exit 1
 fi
+
