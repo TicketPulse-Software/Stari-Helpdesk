@@ -225,3 +225,24 @@ else
     exit 1
 fi
 
+# Generate random admin account details
+admin_username="admin_$(openssl rand -hex 3)"
+admin_password=$(openssl rand -base64 12)
+admin_email=$(grep 'SMTP_USERNAME' .env | cut -d '=' -f2)
+
+# Insert the admin account into the database
+echo "Creating admin account..."
+mysql -h $DB_HOST -u $DB_USERNAME -p$DB_PASSWORD $DB_DATABASE <<EOT
+INSERT INTO users (username, email, password, role) VALUES ('$admin_username', '$admin_email', SHA2('$admin_password', 256), 'admin');
+EOT
+
+if [ $? -eq 0 ]; then
+    echo "Admin account created successfully."
+    echo "Admin username: $admin_username"
+    echo "Admin password: $admin_password"
+else
+    echo "Failed to create admin account. Please check your MySQL credentials and try again."
+    exit 1
+fi
+
+echo "Setup completed successfully."
