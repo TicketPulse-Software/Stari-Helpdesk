@@ -1,6 +1,6 @@
 # Stari-Helpdesk
 
-Welcome to Stari-Helpdesk, an efficient and user-friendly helpdesk system created by TicketPulse Software. This software is designed to help organizations manage customer support tickets, knowledge bases, and integrations with various services.
+Welcome to Stari-Helpdesk, an efficient and user-friendly helpdesk system created by TicketPulse Software. This software is designed to help organizations manage customer support tickets, knowledge bases, and integrations with various services. We use a Custom Helpdesk that uses No Terminal access to Activate
 
 ## Features
 
