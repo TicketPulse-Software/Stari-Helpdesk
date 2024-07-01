@@ -147,6 +147,11 @@ For support, please contact support@ticketpulsesoftware.com or visit our [suppor
 ## Acknowledgements
 
 - **Open Source Libraries**: We thank the developers of the open-source libraries used in this project.
+- PHPMailer's team
+- Google API's team
+- Clicksend API's team
+- Microsoft API' team
+- Elestio's Team
 - **Community Contributions**: We appreciate contributions from the community that help improve this project.
 
 ## Roadmap
