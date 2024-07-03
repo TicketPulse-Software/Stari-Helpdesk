@@ -156,10 +156,11 @@ For support, please contact support@ticketpulsesoftware.com or visit our [suppor
 
 ## Roadmap
 
-- **Hosting on Elest.io: Plan to add a App on Elestio the biggest open source app hoster
+- **Hosting on Elest.io**: Plan to add a App on Elestio the biggest open source app hoster
 - **Future Integrations**: Plan to integrate with more services such as Shopify.
 - **Mobile Support**: Develop dedicated apps for MacOS, iPadOS, and iOS.
 - **Performance Enhancements**: Continuous improvements to ensure optimal performance.
 - **ClickSend and Twilio Integration**: Add support for ClickSend and Twilio for enhanced communication.
 - **SMTP Integration**: Implement a flexible SMTP integration for email notifications.
 - **Enhanced Status Page**: Develop a comprehensive status page for admins and agents to monitor ticket status.
+- **API and CDN hosting**: Develop a Hosting
