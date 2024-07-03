@@ -163,4 +163,4 @@ For support, please contact support@ticketpulsesoftware.com or visit our [suppor
 - **ClickSend and Twilio Integration**: Add support for ClickSend and Twilio for enhanced communication.
 - **SMTP Integration**: Implement a flexible SMTP integration for email notifications.
 - **Enhanced Status Page**: Develop a comprehensive status page for admins and agents to monitor ticket status.
-- **API and CDN hosting**: Develop a Hosting
+- **API and CDN hosting**: Develop a Hosting plans
